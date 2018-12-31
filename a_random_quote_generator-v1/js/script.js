@@ -9,6 +9,10 @@ FSJS project 1 - A Random Quote Generator
 /***
 These is my array of quote objects that will be used to pass the necessary information for displaying the properties of the object.
 ***/
+
+
+
+
 var quotes = [
   {
     quote: 'Do you still believe in Santa Claus? I hear it is marginal at your age',
@@ -44,6 +48,13 @@ var quotes = [
     citation: 'Billy Madison',
     year: '1995'
 
+  },
+  {
+    quote: 'We have some bad hombres here',
+    source: 'Donald J. Trump',
+    citation: '3rd Presidential Debate',
+    year: '2016'
+
   }
 
 ]
@@ -52,12 +63,12 @@ var quotes = [
 
 
 /***
-  This function will generate a random number use that number to identify the index of the
+  This function will generate a random number between 0-5 (the number of objects) and use that number to identify the index of the
   quote object we will display. The function then returns the array with the index.
 ***/
 
 function getRandomQuote(quotes){
-  var randomNumber = Math.ceil(Math.random() * 4);
+  var randomNumber = Math.ceil(Math.random() * 5);
   return quotes[randomNumber];
 
 
@@ -96,15 +107,12 @@ function printQuote (){
       outputDiv.innerHTML = message;
 
 
-}   else{
+    } else{
       message += '</p>';
       var outputDiv = document.getElementById('quote-box')
       outputDiv.innerHTML = message;
+    }
 }
-}
-
-
-
 
 /***
   When the "Show another quote" button is clicked, the event listener
@@ -113,7 +121,9 @@ function printQuote (){
   comment.
 ***/
 
+
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
