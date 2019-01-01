@@ -3,16 +3,9 @@ Treehouse Techdegree:
 FSJS project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
 /***
 These is my array of quote objects that will be used to pass the necessary information for displaying the properties of the object.
 ***/
-
-
-
-
 var quotes = [
   {
     quote: 'Do you still believe in Santa Claus? I hear it is marginal at your age',
@@ -59,9 +52,6 @@ var quotes = [
 
 ]
 
-
-
-
 /***
   This function will generate a random number between 0-5 (the number of objects) and use that number to identify the index of the
   quote object we will display. The function then returns the array with the index.
@@ -73,17 +63,13 @@ function getRandomQuote(quotes){
 
 
 }
-
-
-
-
 /***
   This function executes the RandomQuote Function and stores it in the quoteProperties variable. The quotePoperties variable
   is now storing one of the objects from the quotes array. Since the quote and source properties are required
   we can store those in the message variable as an HTML string right away. But with the citation and year properties being optional, we
   can run conditional statements to first check if citation and year are both properties that exist in the object, if so we will add the HTML string for these properties
   to the message variable and print it. If neither are there, we then check for each object individually and if present, add the content to the HTML string and print. Lastly, if neither of the optional properties
-  are present we will add the closing p tag and print the message with only the two required properties.
+  are present we will add the closing </p> tag and print the message with only the two required properties.
   ***/
 
 function printQuote (){
@@ -114,6 +100,34 @@ function printQuote (){
     }
 }
 
+//To be used for storing the setInterval value
+var timer;
+/*to keep the page from geting stagnant, we will autoscroll the page on an interval. Use a function that will be executed once and
+basically create a constant loop via the setInterval method being called. Only time the timer function gets recalled is on click of button
+which will be explained below.
+*/
+  function setTimer(){
+    timer = setInterval(printQuote, 5000);
+  }
+
+/*going to add this function to the 'click' action. This will clear
+the current interval and start it over again so the user always has enough time to read the quote
+*/
+function clearTimer(){
+  clearInterval(timer);
+  setTimer();
+}
+
+setTimer();
+
+
+
+
+
+
+
+
+
 /***
   When the "Show another quote" button is clicked, the event listener
   below will be triggered, and it will call, or "invoke", the `printQuote`
@@ -123,6 +137,9 @@ function printQuote (){
 
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", clearTimer, false);
+
+
 
 
 
