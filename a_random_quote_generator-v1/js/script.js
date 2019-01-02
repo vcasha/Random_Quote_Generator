@@ -57,7 +57,7 @@ var quotes = [
   quote object we will display. The function then returns the array with the index.
 ***/
 
-function getRandomQuote(quotes){
+const getRandomQuote = quotes =>{
   var randomNumber = Math.ceil(Math.random() * 5);
   return quotes[randomNumber];
 
@@ -72,7 +72,7 @@ function getRandomQuote(quotes){
   are present we will add the closing </p> tag and print the message with only the two required properties.
   ***/
 
-function printQuote (){
+const printQuote = () => {
   var quoteProperties = getRandomQuote(quotes);
   var message = '<p class="quote">' + quoteProperties.quote +  '</p>';
   message += '<p class="source">'+ quoteProperties.source
@@ -101,19 +101,20 @@ function printQuote (){
 }
 
 //To be used for storing the setInterval value
-var timer;
-/*to keep the page from geting stagnant, we will autoscroll the page on an interval. Use a function that will be executed once and
-basically create a constant loop via the setInterval method being called. Only time the timer function gets recalled is on click of button
+let timer;
+/*to keep the page from geting stagnant, the page will cycle through quotes on an interval. This will be done using
+a function that will be executed once and
+basically create a constant loop via the setInterval method being called.
+Only time the timer function gets recalled is on click of button
 which will be explained below.
 */
-  function setTimer(){
-    timer = setInterval(printQuote, 5000);
-  }
+  const setTimer  = () => timer = setInterval(printQuote, 5000);
+
 
 /*going to add this function to the 'click' action. This will clear
 the current interval and start it over again so the user always has enough time to read the quote
 */
-function clearTimer(){
+const clearTimer = () => {
   clearInterval(timer);
   setTimer();
 }
