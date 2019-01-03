@@ -6,7 +6,8 @@ FSJS project 1 - A Random Quote Generator
 /***
 These is my array of quote objects that will be used to pass the necessary information for displaying the properties of the object.
 ***/
-let quotes = [
+let quotes =
+[
   {
     quote: 'Do you still believe in Santa Claus? I hear it is marginal at your age',
     source: 'Donald J. Trump',
