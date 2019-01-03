@@ -57,11 +57,9 @@ var quotes = [
   quote object we will display. The function then returns the array with the index.
 ***/
 
-const getRandomQuote = quotes =>{
+const getRandomQuote = quotes => {
   var randomNumber = Math.ceil(Math.random() * 5);
   return quotes[randomNumber];
-
-
 }
 /***
   This function executes the RandomQuote Function and stores it in the quoteProperties variable. The quotePoperties variable
