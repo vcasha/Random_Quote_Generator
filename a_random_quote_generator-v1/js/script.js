@@ -6,7 +6,7 @@ FSJS project 1 - A Random Quote Generator
 /***
 These is my array of quote objects that will be used to pass the necessary information for displaying the properties of the object.
 ***/
-var quotes = [
+let quotes = [
   {
     quote: 'Do you still believe in Santa Claus? I hear it is marginal at your age',
     source: 'Donald J. Trump',
@@ -53,49 +53,37 @@ var quotes = [
 ]
 
 /***
-  This function will generate a random number between 0-5 (the number of objects) and use that number to identify the index of the
+  This function will generate a random number between 0 and the length of the quotes object and use that number to identify the index of the
   quote object we will display. The function then returns the array with the index.
 ***/
 
-const getRandomQuote = quotes => {
-  var randomNumber = Math.ceil(Math.random() * 5);
+const getRandomQuote = quotes =>
+{
+  var randomNumber = Math.floor(Math.random() * quotes.length);
+  console.log (randomNumber);
   return quotes[randomNumber];
+  console.log (quotes[randomNumber]);
 }
-/***
-  This function executes the RandomQuote Function and stores it in the quoteProperties variable. The quotePoperties variable
-  is now storing one of the objects from the quotes array. Since the quote and source properties are required
-  we can store those in the message variable as an HTML string right away. But with the citation and year properties being optional, we
-  can run conditional statements to first check if citation and year are both properties that exist in the object, if so we will add the HTML string for these properties
-  to the message variable and print it. If neither are there, we then check for each object individually and if present, add the content to the HTML string and print. Lastly, if neither of the optional properties
-  are present we will add the closing </p> tag and print the message with only the two required properties.
-  ***/
-
-const printQuote = () => {
-  var quoteProperties = getRandomQuote(quotes);
-  var message = '<p class="quote">' + quoteProperties.quote +  '</p>';
-  message += '<p class="source">'+ quoteProperties.source
-  if(quoteProperties.hasOwnProperty('citation') && quoteProperties.hasOwnProperty('year')) {
-    message += '<span class="citation">' + quoteProperties.citation
-    message += '</span>' + '<span class="year">' + quoteProperties.year + '</span>' + '</p>';
-    var outputDiv = document.getElementById('quote-box');
-    outputDiv.innerHTML = message;
-
-  } else if (quoteProperties.hasOwnProperty('citation')){
-      message += '<span class="citation">' + quoteProperties.citation;
-      var outputDiv = document.getElementById('quote-box');
-      outputDiv.innerHTML = message;
-
-  } else if (quoteProperties.hasOwnProperty('year')){
-      message += '</span>' + '<span class="year">' + quoteProperties.year + '</span>' + '</p>';
-      var outputDiv = document.getElementById('quote-box');
-      outputDiv.innerHTML = message;
 
 
-    } else{
-      message += '</p>';
-      var outputDiv = document.getElementById('quote-box')
-      outputDiv.innerHTML = message;
+const printQuote = () =>
+{
+  //assign the single object from the quotes array to a variable
+  let quoteProperties = getRandomQuote(quotes);
+  //since the quote and source properties are always present we can go ahead and add those to our HTML string.
+  let message = `<p class="quote"> ${quoteProperties.quote} </p>`;
+  message += `<p class="source"> ${quoteProperties.source}`;
+  //with the others being optional we can add a condition to add their HTML to the message variable if present
+  if(quoteProperties.hasOwnProperty('citation')){
+    message += `<span class="citation">  ${quoteProperties.citation}`;
     }
+  if (quoteProperties.hasOwnProperty('year')) {
+    message += `</span> <span class="year"> ${quoteProperties.year} </span> </p>`;
+    }
+  //print the final message to the 'quote-box' element.
+  var outputDiv = document.getElementById('quote-box');
+  outputDiv.innerHTML = message;
+
 }
 
 //To be used for storing the setInterval value
@@ -106,13 +94,14 @@ basically create a constant loop via the setInterval method being called.
 Only time the timer function gets recalled is on click of button
 which will be explained below.
 */
-  const setTimer  = () => timer = setInterval(printQuote, 5000);
+const setTimer  = () => timer = setInterval(printQuote, 5000);
 
 
 /*going to add this function to the 'click' action. This will clear
 the current interval and start it over again so the user always has enough time to read the quote
 */
-const clearTimer = () => {
+const clearTimer = () =>
+{
   clearInterval(timer);
   setTimer();
 }
