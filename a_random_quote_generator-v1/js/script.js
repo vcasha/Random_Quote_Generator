@@ -12,7 +12,7 @@ let quotes =
     quote: 'Do you still believe in Santa Claus? I hear it is marginal at your age',
     source: 'Donald J. Trump',
     citation: 'Christmas Eve phone calls as NORAD monitors Santa Claus',
-    year: '2018'
+    year: '2018',
 
   },
   {
@@ -53,6 +53,32 @@ let quotes =
 
 ]
 
+//random colors to be used for the background when it changes
+
+let colors =
+[
+  '"red"',
+  '"blue"',
+  '"green"',
+  '"yellow"',
+  '"purple"',
+  '"black"',
+  '"orange"'
+];
+
+//to generate a random color from the colors object and thus a random background color
+let randomBackgroundColor = () =>
+{
+    let newColor = getRandomQuote(colors);
+    let backgroundColor = document.body.style.backgroundColor;
+    backgroundColor +=  `= ${newColor}`;
+    return randomBackgroundColor;
+    console.log(randomBackgroundColor);
+
+}
+
+
+
 /***
   This function will generate a random number between 0 and the length of the quotes object and use that number to identify the index of the
   quote object we will display. The function then returns the array with the index.
@@ -61,9 +87,7 @@ let quotes =
 const getRandomQuote = quotes =>
 {
   var randomNumber = Math.floor(Math.random() * quotes.length);
-  console.log (randomNumber);
   return quotes[randomNumber];
-  console.log (quotes[randomNumber]);
 }
 
 
@@ -133,6 +157,8 @@ setTimer();
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 document.getElementById('loadQuote').addEventListener("click", clearTimer, false);
+document.getElementById('loadQuote').addEventListener("click", randomBackgroundColor, false);
+
 
 
 
