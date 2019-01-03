@@ -74,11 +74,17 @@ const printQuote = () =>
   let message = `<p class="quote"> ${quoteProperties.quote} </p>`;
   message += `<p class="source"> ${quoteProperties.source}`;
   //with the others being optional we can add a condition to add their HTML to the message variable if present
-  if(quoteProperties.hasOwnProperty('citation')){
-    message += `<span class="citation">  ${quoteProperties.citation}`;
-    }
-  if (quoteProperties.hasOwnProperty('year')) {
-    message += `</span> <span class="year"> ${quoteProperties.year} </span> </p>`;
+  if(quoteProperties.hasOwnProperty('citation'))
+  {
+    message += `<span class="citation"> ${quoteProperties.citation}`;
+  }
+  if (quoteProperties.hasOwnProperty('year'))
+  {
+    message += `</span><span class="year"> ${quoteProperties.year}</span></p>`;
+  }
+    else
+    {
+      message += `</p>`;
     }
   //print the final message to the 'quote-box' element.
   var outputDiv = document.getElementById('quote-box');
