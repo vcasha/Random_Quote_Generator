@@ -57,23 +57,24 @@ let quotes =
 
 let colors =
 [
-  '"red"',
-  '"blue"',
-  '"green"',
-  '"yellow"',
-  '"purple"',
-  '"black"',
-  '"orange"'
+  '#009fc2',
+  '#1DA1F2',
+  '#36465D',
+  '#F9524D',
+  '#A68BFF',
+  '#1B1B1C',
+  'FFCE00'
 ];
 
 //to generate a random color from the colors object and thus a random background color
 let randomBackgroundColor = () =>
 {
     let newColor = getRandomQuote(colors);
-    let backgroundColor = document.body.style.backgroundColor;
-    backgroundColor +=  `= ${newColor}`;
-    return randomBackgroundColor;
-    console.log(randomBackgroundColor);
+    document.body.style.backgroundColor = newColor;
+    let button = document.getElementById('loadQuote');
+    button.style.color = newColor;
+
+
 
 }
 
@@ -87,7 +88,9 @@ let randomBackgroundColor = () =>
 const getRandomQuote = quotes =>
 {
   var randomNumber = Math.floor(Math.random() * quotes.length);
+  console.log(randomNumber);
   return quotes[randomNumber];
+
 }
 
 

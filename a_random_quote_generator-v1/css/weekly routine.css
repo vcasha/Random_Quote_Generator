@@ -1,0 +1,114 @@
+
+body {
+  background-color: #009fc2;
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+
+.container{
+  margin-top: 250px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-bottom: auto;
+  border-style: dotted;
+  border-color: white;
+  padding-top: 10px;
+  padding-bottom:10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 210px;
+
+
+}
+
+{
+margin-left: 10px;
+
+}
+
+
+#monday
+{ border-style: inset;
+  border-color: white;
+  margin-left: 10px;
+  margin-right:20px;
+  height: 200px;
+  width: 150px;
+  float: left;
+
+
+}
+
+#monday p{
+  margin-left: 42px;
+}
+
+input{
+  width: 75px;
+  color: black;
+
+}
+
+#tuesday
+{ border-style: inset;
+  border-color: white;
+  margin-left: 10px;
+  margin-right:20px;
+  height: 200px;
+  width: 150px;
+  float: left;
+
+
+}
+
+#tuesday p{
+  margin-left: 42px;
+}
+
+#wednesday
+{ border-style: inset;
+  border-color: white;
+  margin-left: 10px;
+  margin-right:20px;
+  height: 200px;
+  width: 150px;
+  float: left;
+
+
+}
+
+#wednesday p{
+  margin-left: 42px;
+}
+
+#thursday
+{ border-style: inset;
+  border-color: white;
+  margin-left: 10px;
+  margin-right:20px;
+  height: 200px;
+  width: 150px;
+  float: left;
+
+
+}
+
+#thursday p{
+  margin-left: 42px;
+}
+
+#friday
+{ border-style: inset;
+  border-color: white;
+  margin-left: 10px;
+  margin-right:20px;
+  height: 200px;
+  width: 150px;
+  float: left;
+
+
+}
+
+#friday p{
+  margin-left: 42px;
+}
